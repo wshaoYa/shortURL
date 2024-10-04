@@ -1,0 +1,28 @@
+syntax = "v1"
+
+service shortURL-api {
+	// 长链转短链
+	@handler ConvertHandler
+	post /convert (ConvertReq) returns (ConvertResp)
+
+	// 短链访问网页
+	@handler ShowHandler
+	get /:shortURL (ShowReq) returns (ShowResp)
+}
+
+type ConvertReq {
+	LongURL string `json:"longUrl" validate:"required"` // validator 参数校验
+}
+
+type ConvertResp {
+	ShortURL string `json:"shortUrl"`
+}
+
+type ShowReq {
+	ShortURL string `path:"shortURL" validate:"required"`
+}
+
+type ShowResp {
+	LongURL string `json:"longUrl"`
+}
+

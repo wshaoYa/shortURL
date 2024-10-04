@@ -1,0 +1,20 @@
+Name: shortURL-api
+Host: 0.0.0.0
+Port: 8888
+
+Log:
+  Mode: file
+
+ShortUrlDB:
+  DSN: root:sw6813329@tcp(127.0.0.1:3306)/person_practice?charset=utf8mb4&parseTime=True&loc=Local
+
+SequenceDB:
+  DSN: root:sw6813329@tcp(127.0.0.1:3306)/person_practice?charset=utf8mb4&parseTime=True&loc=Local
+
+CacheConf:
+  - Host: 127.0.0.1:6379
+
+
+BlackList: [ "version","healthy", "health","fuck","stupid","beach","baidu","wocao","cnm","convert","show","v1","api","css","js" ]
+
+ShortUrlDomain: 127.0.0.1:8888
